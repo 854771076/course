@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+登录
+{% endblock title %}
+{% block css %}
+<style>
+form{
+    display: block;
+    min-width: 600px;
+    max-width: 600px;
+    
+    padding: 50px 30px;
+    height: 400px;
+    margin: 0 auto;
+    margin-top: 200px;
+    background-color: #fff;
+    border-radius: 15px;
+}
+label{width: 120px;}
+</style>
+{% endblock css %}
+{% block content %}
+<form action="/login" method="post">
+    <h3 style="width:100%;text-align:center;margin-bottom:20px">登录</h3>
+    <div class="row mb-3">
+      <label for="account" class="col-sm-2 col-form-label">学号/工号</label>
+      <div class="col-sm-10">
+        <input type="no" name="no" class="form-control" id="account">
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="inputPassword3" class="col-sm-2 col-form-label">密码</label>
+      <div class="col-sm-10">
+        <input type="password" name="pwd" class="form-control" id="inputPassword3">
+      </div>
+    </div>
+    <select class="form-select" id="type" name="type" >
+        <option value="学生">学生</option>
+        <option value="老师">老师</option>
+    </select>
+    <button type="submit" class="btn btn-primary" style="margin-top: 30px;">登录</button>
+  </form>
+{% endblock content %}

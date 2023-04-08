@@ -32,7 +32,7 @@ SIMPLEUI_LOGO=r'/static/favicon.ico'
 # # Application definition
 SIMPLEUI_HOME_INFO = False 
 # SIMPLEUI_ANALYSIS = False 
-SIMPLEUI_HOME_PAGE = '/'  # 指向页面
+SIMPLEUI_HOME_PAGE = '/root_index'  # 指向页面
 SIMPLEUI_ANALYSIS=True
 # SIMPLEUI_HOME_TITLE = '可视化!' # 首页标题
 # SIMPLEUI_HOME_ICON = 'fa fa-code'

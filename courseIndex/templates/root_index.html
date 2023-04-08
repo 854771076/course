@@ -16,8 +16,18 @@
       <li class="page-item"><a class="page-link" href="?week={{week|add:1}}&cid={{cid}}">下一周</a></li>
     </ul>
   </nav>
-  
-<strong>你好,{{user}}！</strong>
+
+  <form class="d-flex" role="search" action="/root_index" style="width:500px">
+    <input type="text" name="week" value="{{week}}" hidden>
+    <select class="form-select" id="search2" name="tid" style="margin-right: 15px;width:150px">
+
+    </select>
+    <select class="form-select" id="search" name="cid" style="margin-right: 15px;width:200px">
+
+    </select>
+
+    <button class="btn btn-outline-success" type="submit" style="width:75px">搜索</button>
+  </form>
 </div>
 <!-- Button trigger modal -->
 <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">

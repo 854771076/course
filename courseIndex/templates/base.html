@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}
+        排课系统
+    {% endblock title %}</title>
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet"> 
+    <link href="{% static 'vendor/fontawesome-free/css/fontawesome.css' %}" rel="stylesheet"> 
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    {% block css %}
+      
+    {% endblock css %}
+</head>
+<body>
+    {% block content %}
+      
+    {% endblock content %}
+</body>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script>
+    var week='{{week}}'
+    var cid='{{cid}}'
+    var tid='{{tid}}'
+</script>
+<script src="{% static 'vendor/pxmu/pxmu.min.js' %}"></script>
+<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!-- Core plugin JavaScript-->
+<script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+{% if message.status != 0 and message.status != None%}
+<script>pxmu.toast('{{message.msg}}')</script>
+{% elif message.status == 0 %}
+<script>pxmu.toast('{{message.msg}}')</script>
+{% endif %}
+{% block js %}
+  
+{% endblock js %}
+</html>

@@ -32,7 +32,28 @@ function init() {
         }
     })
     $.ajax({
-        url: `/getdata?week=${week}&cid=${cid}`,
+        url: `/getteacher?week=-1`,
+        dataType: "json",
+        type: "get",
+        async: false,
+        success: function (d) {
+            d = d.list
+            html = '<option value="" >不限</option>'
+            d.forEach(element => {
+                html += `<option value="${element.id}">${element.name}</option>`
+            });
+            if (html == '') {
+                html = '<option value="" >无教师</option>'
+            }
+            $('#search2').html(html)
+            $('#search2').val(ctid)
+        },
+        error: function (err) {
+            pxmu.toast('加载失败')
+        }
+    })
+    $.ajax({
+        url: `/getdata?week=${week}&cid=${cid}&tid=${tid}`,
         dataType: "json",
         type: "get",
         async: false,
