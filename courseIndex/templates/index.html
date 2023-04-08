@@ -1,0 +1,255 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>排课系统</title>
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet"> 
+    <link href="{% static 'vendor/fontawesome-free/css/fontawesome.css' %}" rel="stylesheet"> 
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<body>
+    <h2 class="title">
+        <span id='title'>第 <span id='week'></span> 周课表</span>
+        
+    </h2>
+    <div class="search">
+        
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li  class="page-item" style="margin-right: 15px;"><button type="button" class="btn btn-primary"  onclick="window.location.href='/savedata?week={{week}}&cid={{cid}}'">保存csv</button></li>
+              <li class="page-item" style="margin-right: 15px;"><a class="page-link" href="?week={{week|add:-1}}&cid={{cid}}">上一周</a></li>
+              <li class="page-item"><a class="page-link" href="?week={{week|add:1}}&cid={{cid}}">下一周</a></li>
+            </ul>
+        </nav>
+
+        <form class="d-flex" role="search" action="/" style="width:300px">
+            <input type="text"  name="week" value="{{week}}" hidden>
+            <select class="form-select" id="search" name="cid" style="margin-right: 15px;">
+                
+            </select>
+            
+            <button class="btn btn-outline-success" type="submit" style="width:75px">搜索</button>
+          </form>
+    </div>
+    <!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+  </button> -->
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">修改/删除课程</h1>
+          <button type="button" class="btn-close" id="close1" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="mb-3">
+                <label for="dataid" class="form-label">id</label>
+                <input type="text" class="form-control" id="dataid" placeholder="id">
+            </div>
+            <div class="mb-3">
+                <label for="dataweek" class="form-label">周次</label>
+                <input type="text" class="form-control" id="dataweek" placeholder="数字(1,2,3)">
+            </div>
+            <div class="mb-3">
+                <label for="datasubject" class="form-label">学科</label>
+                <input type="text" class="form-control" id="datasubject" placeholder="学科">
+            </div>
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="dataday">星期</label>
+                <select class="form-select" id="dataday">
+                  <option value="1">星期一</option>
+                  <option value="2">星期二</option>
+                  <option value="3">星期三</option>
+                  <option value="4">星期四</option>
+                  <option value="5">星期五</option>
+                  <option value="6">星期六</option>
+                  <option value="7">星期天</option>
+                </select>
+            </div>
+            
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="dataSection">节次</label>
+                <select class="form-select" id="dataSection">
+                  <option value="1">第一节</option>
+                  <option value="2">第二节</option>
+                  <option value="3">第三节</option>
+                  <option value="4">第四节</option>
+                  <option value="5">第五节</option>
+                  <option value="6">第六节</option>
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="teacherlist">授课老师</label>
+                <select class="form-select" id="teacherlist">
+                  
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="classlist">班级</label>
+                <select class="form-select" id="classlist">
+                  
+                </select>
+            </div>
+
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="roomlist">教室</label>
+                <select class="form-select" id="roomlist">
+                  
+                </select>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="del" class="btn btn-secondary">删除</button>
+          <button type="button" id="sub1" class="btn btn-primary">修改</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">添加课程</h1>
+          <button type="button" class="btn-close" id="close2" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="mb-3">
+                <label for="dataweek2" class="form-label">周次</label>
+                <input type="text" class="form-control" id="dataweek2" placeholder="数字(1,2,3)">
+            </div>
+            <div class="mb-3">
+                <label for="datasubject2" class="form-label">学科</label>
+                <input type="text" class="form-control" id="datasubject2" placeholder="学科">
+            </div>
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="dataday2">星期</label>
+                <select class="form-select" id="dataday2">
+                  <option value="1">星期一</option>
+                  <option value="2">星期二</option>
+                  <option value="3">星期三</option>
+                  <option value="4">星期四</option>
+                  <option value="5">星期五</option>
+                  <option value="6">星期六</option>
+                  <option value="7">星期天</option>
+                </select>
+            </div>
+            
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="dataSection2">节次</label>
+                <select class="form-select" id="dataSection2">
+                  <option value="1">第一节</option>
+                  <option value="2">第二节</option>
+                  <option value="3">第三节</option>
+                  <option value="4">第四节</option>
+                  <option value="5">第五节</option>
+                  <option value="6">第六节</option>
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="teacherlist2">授课老师</label>
+                <select class="form-select" id="teacherlist2">
+                  
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="classlist2">班级</label>
+                <select class="form-select" id="classlist2">
+                  
+                </select>
+            </div>
+
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="roomlist2">教室</label>
+                <select class="form-select" id="roomlist2">
+                  
+                </select>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="sub2" class="btn btn-primary">提交</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="main">
+        
+        <div class="section">
+            <div id="label">节次/星期</div>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+        <div class="courses">
+           
+            <div class="weeks">
+                <div>周一</div>
+                <div>周二</div>
+                <div>周三</div>
+                <div>周四</div>
+                <div>周五</div>
+                <div>周六</div>
+                <div>周日</div>
+            </div>
+            <div class="datas">
+                <div>
+                    <!-- <div class="data">
+                        <div id="course">
+                            <div class="course" data-bs-toggle="modal" data-bs-target="#exampleModal" data-week='1' data-day="">
+                                <div>线性代数A</div>@<span>王应龙</span>@<i>实训楼101</i>@<strong>大数据1班</strong>
+    
+                            </div>
+                            <div class="course">
+                                <div>线性代数b</div>@<span>王应龙</span>@<i>实训楼101</i><strong>大数据1班</strong>
+    
+                            </div>
+                            <div class="course">
+                                <div>线性代数C</div>@<span>王应龙</span>@<i>实训楼101</i><strong>大数据1班</strong>
+    
+                            </div>
+                        </div>
+                        
+                        <div class="fun" >
+                            <i class="fa-solid fa-circle-plus add" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                
+                            </i>
+                        </div>
+                    </div> -->
+                </div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+
+</body>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script>
+    var week='{{week}}'
+    var cid='{{cid}}'
+</script>
+<script src="{% static 'vendor/pxmu/pxmu.min.js' %}"></script>
+<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!-- Core plugin JavaScript-->
+<script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+<script src="{% static 'js/index.js' %}"></script>
+</html>
