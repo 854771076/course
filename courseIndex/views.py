@@ -46,17 +46,19 @@ def getdata(request):
 def savedata(request):
     week=int(request.GET.get('week',1))
     cid=request.GET.get('cid','')
+    cname=''
     li={f'星期{i+1}':['' for j in range(6)] for i in range(7)}
     if cid=='':
         courses=CourseWeekData.objects.filter(Q(week=week))
     else:
+        cname=BasicClass.objects.get(id=cid).class_name
         courses=CourseWeekData.objects.filter(Q(week=week)&Q(Class_id=cid))
     for course in courses:
         li[f'星期{course.day}'][course.Section-1]+=course.subject+'@'+course.teacher.teacher_name+'@'+course.Class.class_name+'@'+course.room.room_name+'\n'
     df=pd.DataFrame(li)
     df.columns=['星期一','星期二','星期三','星期四','星期五','星期六','星期天']
     df.index=[i for i in range(1,7)]
-    name=f'第{week}周课程表_{datetime.datetime.now().timestamp()}.csv'
+    name=f'{cname}第{week}周课程表_{datetime.datetime.now().timestamp()}.csv'
     df.to_csv(r'media/csv/'+name)
     return redirect('/media/csv/'+name)
 def adddata(request):
