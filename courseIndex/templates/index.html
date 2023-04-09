@@ -16,8 +16,11 @@
       <li class="page-item"><a class="page-link" href="?week={{week|add:1}}&cid={{cid}}">下一周</a></li>
     </ul>
   </nav>
-  
-<strong>你好,{{user}}！</strong>
+<div>
+  <strong style="margin-right: 15px;">你好,{{user}}！</strong>
+  <a href="/login">退出登录</a>
+</div>
+
 </div>
 <!-- Button trigger modal -->
 <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -29,7 +32,7 @@ Launch demo modal
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">修改/删除课程</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">课程详细</h1>
         <button type="button" class="btn-close" id="close1" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -39,15 +42,15 @@ Launch demo modal
         </div>
         <div class="mb-3">
           <label for="dataweek" class="form-label">周次</label>
-          <input type="text" class="form-control" id="dataweek" placeholder="数字(1,2,3)">
+          <input type="text" class="form-control" id="dataweek" placeholder="数字(1,2,3)" disabled="true">
         </div>
         <div class="mb-3">
           <label for="datasubject" class="form-label">学科</label>
-          <input type="text" class="form-control" id="datasubject" placeholder="学科">
+          <input type="text" class="form-control" id="datasubject" placeholder="学科" disabled="true">
         </div>
         <div class="input-group mb-3">
-          <label class="input-group-text" for="dataday">星期</label>
-          <select class="form-select" id="dataday">
+          <label class="input-group-text" for="dataday" >星期</label>
+          <select class="form-select" id="dataday" disabled="true">
             <option value="1">星期一</option>
             <option value="2">星期二</option>
             <option value="3">星期三</option>
@@ -60,7 +63,7 @@ Launch demo modal
 
         <div class="input-group mb-3">
           <label class="input-group-text" for="dataSection">节次</label>
-          <select class="form-select" id="dataSection">
+          <select class="form-select" id="dataSection" disabled="true">
             <option value="1">第一节</option>
             <option value="2">第二节</option>
             <option value="3">第三节</option>
@@ -71,97 +74,31 @@ Launch demo modal
         </div>
         <div class="input-group mb-3">
           <label class="input-group-text" for="teacherlist">授课老师</label>
-          <select class="form-select" id="teacherlist">
+          <select class="form-select" id="teacherlist" disabled="true">
 
           </select>
         </div>
         <div class="input-group mb-3">
-          <label class="input-group-text" for="classlist">班级</label>
-          <select class="form-select" id="classlist">
+          <label class="input-group-text" for="classlist" >班级</label>
+          <select class="form-select" id="classlist" disabled="true">
 
           </select>
         </div>
 
         <div class="input-group mb-3">
           <label class="input-group-text" for="roomlist">教室</label>
-          <select class="form-select" id="roomlist">
+          <select class="form-select" id="roomlist" disabled="true">
 
           </select>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" id="del" class="btn btn-secondary">删除</button>
-        <button type="button" id="sub1" class="btn btn-primary">修改</button>
+        <button type="button" id="del" class="btn btn-secondary" aria-label="Close" data-bs-dismiss="modal" >关闭</button>
       </div>
     </div>
   </div>
 </div>
-<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">添加课程</h1>
-        <button type="button" class="btn-close" id="close2" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="mb-3">
-          <label for="dataweek2" class="form-label">周次</label>
-          <input type="text" class="form-control" id="dataweek2" placeholder="数字(1,2,3)">
-        </div>
-        <div class="mb-3">
-          <label for="datasubject2" class="form-label">学科</label>
-          <input type="text" class="form-control" id="datasubject2" placeholder="学科">
-        </div>
-        <div class="input-group mb-3">
-          <label class="input-group-text" for="dataday2">星期</label>
-          <select class="form-select" id="dataday2">
-            <option value="1">星期一</option>
-            <option value="2">星期二</option>
-            <option value="3">星期三</option>
-            <option value="4">星期四</option>
-            <option value="5">星期五</option>
-            <option value="6">星期六</option>
-            <option value="7">星期天</option>
-          </select>
-        </div>
 
-        <div class="input-group mb-3">
-          <label class="input-group-text" for="dataSection2">节次</label>
-          <select class="form-select" id="dataSection2">
-            <option value="1">第一节</option>
-            <option value="2">第二节</option>
-            <option value="3">第三节</option>
-            <option value="4">第四节</option>
-            <option value="5">第五节</option>
-            <option value="6">第六节</option>
-          </select>
-        </div>
-        <div class="input-group mb-3">
-          <label class="input-group-text" for="teacherlist2">授课老师</label>
-          <select class="form-select" id="teacherlist2">
-
-          </select>
-        </div>
-        <div class="input-group mb-3">
-          <label class="input-group-text" for="classlist2">班级</label>
-          <select class="form-select" id="classlist2">
-
-          </select>
-        </div>
-
-        <div class="input-group mb-3">
-          <label class="input-group-text" for="roomlist2">教室</label>
-          <select class="form-select" id="roomlist2">
-
-          </select>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" id="sub2" class="btn btn-primary">提交</button>
-      </div>
-    </div>
-  </div>
-</div>
 <div class="main">
 
   <div class="section">
@@ -200,5 +137,5 @@ Launch demo modal
 
 {% endblock content %}
 {% block js %}
-<script src="{% static 'js/root_index.js' %}"></script>
+<script src="{% static 'js/index.js' %}"></script>
 {% endblock js %}
