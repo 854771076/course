@@ -18,7 +18,9 @@ from django.urls import path,include
 from django.conf.urls.static import static
 from django.conf import settings
 urlpatterns = [
+    #管理员后台
     path('admin/', admin.site.urls,name='admin'),
+    #拼接courseIndex应用所有路由
     path('', include("courseIndex.urls")),
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 

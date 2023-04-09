@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils import timezone
 # Create your models here.
 
 
@@ -25,18 +24,6 @@ class Teacher(models.Model):
         verbose_name_plural='老师表'
         # managed = False
         db_table = 'teacher'
-
-
-
-
-import time
-# 获取下周周数
-def getWeek():
-    week=time.strftime("%W")
-    week=int(week)+1
-    return week
-
-
 
 class BasicClass(models.Model):
     id=models.BigAutoField(primary_key=True,blank=False)

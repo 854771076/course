@@ -26,22 +26,16 @@ SECRET_KEY = 'mwx^h2avj1l1gis*6-^4$#b0pklj19e+z*v5=zvt*+hzwr+60m'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
-# APPEND_SLASH=False
+#后台logo
 SIMPLEUI_LOGO=r'/static/favicon.ico'
-# # Application definition
+#关闭simpleui广告
 SIMPLEUI_HOME_INFO = False 
-# SIMPLEUI_ANALYSIS = False 
-SIMPLEUI_HOME_PAGE = '/root_index'  # 指向页面
-SIMPLEUI_ANALYSIS=True
-# SIMPLEUI_HOME_TITLE = '可视化!' # 首页标题
-# SIMPLEUI_HOME_ICON = 'fa fa-code'
+#后台首页
+SIMPLEUI_HOME_PAGE = '/root_index'  
 
-# Application definition
-# Application definition
 
 INSTALLED_APPS = [
-    'simpleui',
+    'simpleui',#注册simpleuiAPP，需要放到最前面
     'django.contrib.contenttypes',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -49,9 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'courseIndex',
+    'courseIndex',#注册courseIndexAPP
 ]
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
