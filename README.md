@@ -570,3 +570,59 @@ class Login(View):
 
 ```
 
+* #### 前端技术栈
+
+​	html,css,js,jquery.js、bootstrap
+
+### 8.项目部署
+
+* 创建虚拟环境
+
+```
+conda create -n course python=3.8
+```
+
+* 安装项目依赖
+
+```cmd
+#进入项目虚拟环境
+conda activate course
+#进入项目目录
+cd xxx
+#安装依赖
+pip install -r requirements.txt
+```
+
+* 修改数据库设置
+
+```python
+#进入项目settings.py，修改数据库配置
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': '数据库名',
+        'USER':'用户名',
+        'PASSWORD':'密码',
+        'HOST':'127.0.0.1',
+        'POST':'3306',
+        'OPTIONS': {'charset': 'utf8mb4'},
+    }
+}
+
+```
+
+* 迁移数据库
+
+```cmd
+#进入项目目录
+cd xxx
+python manage.py makemigrations
+python manage.py migrate
+```
+
+* 启动项目
+
+```
+python manage.py runserver
+```
+
