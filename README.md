@@ -4,7 +4,7 @@
 
 ### 1.学生/教师用户登录界面
 
-![1](/854771076/coursecourse/img/1.jpg)
+![1](/854771076/course/blob/master/img/1.jpg)
 
 ### 2.首页
 
