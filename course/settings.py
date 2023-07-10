@@ -83,9 +83,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'school',
-        'USER':'school',
-        'PASSWORD':'fiang123',
-        'HOST':'www.fiang.fun',
+        'USER':'root',
+        'PASSWORD':'root',
+        'HOST':'127.0.0.1',
         'POST':'3306',
         'OPTIONS': {'charset': 'utf8mb4'},
     }

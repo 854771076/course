@@ -57,6 +57,7 @@ def getdata(request):
     #筛选条件
     cid = request.GET.get('cid', '')#班级id
     tid = request.GET.get('tid', '')#老师id
+    
     #初始化课程表
     '''
     [[[], [], [], [], [], []],
@@ -209,6 +210,7 @@ def index(request):
     user=''
     if sid:
         user=Student.objects.get(id=sid)
+        
     if tid:
         user=Teacher.objects.get(id=tid)
     
@@ -249,12 +251,12 @@ class Login(View):
                 if type == '学生':
                     
                     u = Student.objects.get(student_num=no)
-                    sid=no
+                    sid=u.id
                     cid = u.Class.id
                     
                 else:
                     u = Teacher.objects.get(teacher_num=no)
-                    tid = no
+                    tid = u.id
             except Exception as e:
                 message.status = 0
                 message.msg = f'学号/工号错误'

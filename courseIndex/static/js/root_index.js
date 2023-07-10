@@ -46,7 +46,7 @@ function init() {
                 html = '<option value="" >无教师</option>'
             }
             $('#search2').html(html)
-            $('#search2').val(ctid)
+            $('#search2').val(tid)
         },
         error: function (err) {
             pxmu.toast('加载失败')

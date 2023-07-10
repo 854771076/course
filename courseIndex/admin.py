@@ -12,14 +12,14 @@ admin.site.site_header = "排课系统"
 class TeacherAdmin(admin.ModelAdmin):
     exclude = []
     list_display=['teacher_num','teacher_name']
-    search_fields=['teacher_name']
+    search_fields=['teacher_num','teacher_name']
 #注册课程表后台管理功能    
 @admin.register(CourseWeekData)
 class CourseWeekDataAdmin(admin.ModelAdmin):
     exclude = []
     list_display = ['id','subject','week','teacher','Class','room','day','Section']
     ordering=['week','day','Section']
-    search_fields=['week','teacher']
+    search_fields=['week','teacher__teacher_name']
 #注册班级表后台管理功能
 @admin.register(BasicClass)
 class BasicClassAdmin(admin.ModelAdmin):
