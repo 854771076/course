@@ -204,11 +204,11 @@ INSTALLED_APPS = [
 
 list_display是后台管理界面需要显示出的字段
 
-![10](img\10.jpg)
+![10](img/10.jpg)
 
 search_fields是后台参与搜索的字段
 
-![11](img\11.jpg)
+![11](img/11.jpg)
 
 ordering是参与排序的字段
 
