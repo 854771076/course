@@ -2,39 +2,51 @@
 
 # 课表管理系统
 
+### 声明
+
+本程序仅供学习和演示目的，不用于任何商业用途，作者对程序的使用和任何可能的损失概不负责，在使用本程序前，请确保您理解风险，并根据自己的需要进行适当的测试和验证，使用本程序即表示您接受了这个免责声明。
+
+### 联系方式
+
+**QQ:** 854771076
+
+### 支持
+
+![pay](img/pay.png)
+
 ### 1.学生/教师用户登录界面
 
-![1](https://github.com/854771076/course/blob/master/img/1.jpg)
+![1](img/1.jpg)
 
 ### 2.首页
 
-![2](https://github.com/854771076/course/blob/master/img/2.jpg)
+![2](img/2.jpg)
 
 ### 3.课程详细
 
 ​	点击已有课程，可弹出课程详细数据。
 
-![4](https://github.com/854771076/course/blob/master/img/4.jpg)
+![4](img/4.jpg)
 
 ### 4.保存csv功能
 
 ​	点击保存csv按钮，可下载当前显示课表的csv格式文档。
 
-![5](https://github.com/854771076/course/blob/master/img/5.jpg)
+![5](img/5.jpg)
 
 ### 5.管理员登录界面
 
-![6](https://github.com/854771076/course/blob/master/img/6.jpg)
+![6](img/6.jpg)
 
 ### 6.管理员后台界面
 
 ​	管理员通过后台可以对老师、学生、班级等数据表进行增删改查功能，同时管理员后台首页可以实时的对每个班级/老师的课程进行安排，还有简单的筛选搜索功能、导出csv功能、新增/删除/修改课表信息功能。
 
-![7](https://github.com/854771076/course/blob/master/img/7.jpg)
+![7](img/7.jpg)
 
-![8](https://github.com/854771076/course/blob/master/img/8.jpg)
+![8](img/8.jpg)
 
-![9](https://github.com/854771076/course/blob/master/img/9.jpg)
+![9](img/9.jpg)
 
 ### 7.代码详解
 
